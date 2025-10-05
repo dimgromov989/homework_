@@ -21,6 +21,7 @@ def mask_account_card(user_input: str) -> str:
             return f"{result_for_words} {get_mask_account(result_for_digit)}"
         else:
             return f"{result_for_words} {get_mask_card_number(result_for_digit)}"
+    return "Неполадки с номером счета или карты"
 
 
 def get_date(user_input_data: str) -> str:
