@@ -1,4 +1,3 @@
-
 def get_mask_card_number(mask_card_number: str) -> str:
     """Функция, принимающая на вход номер карты и возвращает ее маску в замаскированном формате"""
     return f"{mask_card_number[0:4]} {mask_card_number[4:6]}** **** {mask_card_number[12:]}"
