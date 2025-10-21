@@ -8,7 +8,7 @@ list_of_dict = [
 
 def filter_by_state(list_of_dict: list, state: str) -> list:
     """Функция возвращает новый список словарей, содержащий только те словари,
-    у которых ключ соответствует указанному значению."""
+    у которых ключ соответствует указанному значению"""
     list_for_filter_item = []
     for item_of_dict in list_of_dict:
         if item_of_dict.get("state") == state:
@@ -22,9 +22,9 @@ def sort_by_date(list_of_dict: list, sort: bool = True) -> list:
     return sorted_list_of_date
 
 
-result_for_filter_date = filter_by_state(list_of_dict, state=input() or "EXECUTED")
-result_for_sort_date = sort_by_date(list_of_dict)
-
-
-print(f"Фильтр по state: {result_for_filter_date}")
-print(f"Фильтр по date:{result_for_sort_date}")
+# result_for_filter_date = filter_by_state(list_of_dict, state=input() or "EXECUTED")
+# result_for_sort_date = sort_by_date(list_of_dict)
+#
+#
+# print(f"Фильтр по state: {result_for_filter_date}")
+# print(f"Фильтр по date:{result_for_sort_date}")

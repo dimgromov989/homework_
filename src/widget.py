@@ -17,7 +17,7 @@ def mask_account_card(user_input: str) -> str:
     result_for_words = " ".join(list_for_words)
     result_for_digit = "".join(list_for_digit)
     for item_ in new_user_input:
-        if item_ == "Счет":
+        if item_ in ("Счет", "Счёт"):
             return f"{result_for_words} {get_mask_account(result_for_digit)}"
         else:
             return f"{result_for_words} {get_mask_card_number(result_for_digit)}"
