@@ -1,6 +1,6 @@
 import pytest
 
-from generators import filter_by_currency
+from src.generators import filter_by_currency
 
 
 @pytest.mark.parametrize(

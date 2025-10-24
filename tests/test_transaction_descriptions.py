@@ -1,6 +1,5 @@
 import pytest
-
-from generators import transaction_descriptions
+from src.generators import transaction_descriptions
 
 
 def test_transaction_descriptions(sample_transactions):

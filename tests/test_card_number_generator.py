@@ -1,6 +1,6 @@
 import pytest
 
-from generators import card_number_generator
+from src.generators import card_number_generator
 
 
 @pytest.mark.parametrize(
