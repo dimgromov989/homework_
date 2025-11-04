@@ -1,5 +1,5 @@
-from masks import get_mask_account
-from masks import get_mask_card_number
+from src.masks import get_mask_account
+from src.masks import get_mask_card_number
 
 
 def mask_account_card(user_input: str) -> str:
@@ -17,10 +17,11 @@ def mask_account_card(user_input: str) -> str:
     result_for_words = " ".join(list_for_words)
     result_for_digit = "".join(list_for_digit)
     for item_ in new_user_input:
-        if item_ == "Счет":
+        if item_ in ("Счет", "Счёт"):
             return f"{result_for_words} {get_mask_account(result_for_digit)}"
         else:
             return f"{result_for_words} {get_mask_card_number(result_for_digit)}"
+    return "Неполадки с номером счета или карты"
 
 
 def get_date(user_input_data: str) -> str:
@@ -28,8 +29,8 @@ def get_date(user_input_data: str) -> str:
     return f"{user_input_data[8:10]}.{user_input_data[5:7]}.{user_input_data[:4]}"
 
 
-result_ = mask_account_card(user_input=input("Введите номер карты или счета: "))
-result_for_data = get_date(user_input_data=input("Введите дату: "))
+# result_ = mask_account_card(user_input=input("Введите номер карты или счета: "))
+# result_for_data = get_date(user_input_data=input("Введите дату: "))
 
-print(result_)
-print(result_for_data)
+# print(result_)
+# print(result_for_data)
