@@ -120,3 +120,8 @@ def sample_transactions():
             "to": "Счет 14211924144426031657",
         },
     ]
+
+
+@pytest.fixture
+def func_for_add():
+    return [10, 5]
