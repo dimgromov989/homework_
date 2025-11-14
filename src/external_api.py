@@ -41,7 +41,7 @@ result = currency_conversion(transaction={
         "amount": "8221.37",
         "currency": {
             "name": "USD",
-            "code": "EUR"
+            "code": "RUB"
         }
     },
     "description": "Перевод организации",
