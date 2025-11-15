@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 def currency_conversion(transaction: dict):
     """Функция, которая принимает на вход транзакцию и возвращает сумму транзакции (amount)
      в рублях, тип данных — float"""
-    load_dotenv('.env')
+    load_dotenv()
     if 'operationAmount' in transaction:
         if transaction.get('operationAmount').get('currency').get('code') == 'RUB':
             amount_for_rub = transaction.get('operationAmount').get('amount')
@@ -19,29 +19,28 @@ def currency_conversion(transaction: dict):
                 "from": f"{transaction.get('operationAmount').get('currency').get('code')}",
                 "to": "RUB"
             }
+            api_key = os.getenv("API_KEY")
             headers = {
-                "apikey": f"{os.getenv('API_KEY')}"
+                "apikey": api_key
             }
             response = requests.get(url, headers=headers, params=payload)
             result_of_json = response.json()
             result_rate = result_of_json['info']['rate']
             result_amount = result_of_json['result']
-            # with open('output.json', 'w') as f:
-            #      json.dump(result_of_json, f)
             return f'Сумма транзакции в рублях: {result_amount}', f'Текущий курс: {result_rate}'
     else:
         return 'Нет суммы транзакции'
 
 
 result = currency_conversion(transaction={
-    "id": 41428829,
+    "id": 41428825,
     "state": "EXECUTED",
     "date": "2019-07-03T18:35:29.512364",
     "operationAmount": {
         "amount": "8221.37",
         "currency": {
             "name": "USD",
-            "code": "RUB"
+            "code": "USD"
         }
     },
     "description": "Перевод организации",
