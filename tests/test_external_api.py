@@ -1,8 +1,11 @@
 from unittest.mock import patch, Mock
 from src.external_api import currency_conversion
-
+import os
+from dotenv import load_dotenv
 
 def test_currency_conversion_usd_success():
+    load_dotenv()
+    api_key = os.getenv('API_KEY')
     mock_response = Mock()
     mock_response.status_code = 200
     mock_response.json.return_value = {
@@ -31,7 +34,7 @@ def test_currency_conversion_usd_success():
 
     mock_get.assert_called_once_with(
         "https://api.apilayer.com/exchangerates_data/convert",
-        headers={"apikey": "fSHSoKuZ2zVFxstaVw1stEq3GIFqPptc"},
+        headers={"apikey": f"{api_key}"},
         params={
             "amount": "8221.37",
             "from": "USD",
