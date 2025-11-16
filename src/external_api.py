@@ -26,7 +26,7 @@ def currency_conversion(transaction: dict) -> float:
             response = requests.get(url, headers=headers, params=payload)
             result_of_json = response.json()
             result_amount = result_of_json['result']
-            return result_amount
+            return float(result_amount)
     else:
         return 'Нет суммы транзакции'
 
