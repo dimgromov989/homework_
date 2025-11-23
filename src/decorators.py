@@ -1,6 +1,7 @@
 def log(filename=None):
     """Декоратор, который автоматически логирует начало и конец выполнения функции,
     а также ее результаты или возникшие ошибки"""
+
     def decorator_for_logging(function):
         def wrapper(*args, **kwargs):
             start_message = f"Функция {function.__name__} начала свою работу\n"
@@ -25,7 +26,9 @@ def log(filename=None):
                 return result
             else:
                 pass
+
         return wrapper
+
     return decorator_for_logging
 
 
