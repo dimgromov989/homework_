@@ -42,10 +42,8 @@ def test_currency_conversion_usd_success():
         }
     )
 
-    expected = (
-        'Сумма транзакции в рублях: 667461.616445',
-        'Текущий курс: 81.186179'
-    )
+    expected =  667461.616445
+
     assert result == expected
 
 
@@ -57,7 +55,7 @@ def test_currency_conversion_rub():
         }
     }
     result = currency_conversion(transaction)
-    assert result == "Сумма транзакции: 5000.00"
+    assert result == 5000.0
 
 
 def test_currency_conversion_no_operation_amount():

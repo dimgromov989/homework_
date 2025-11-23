@@ -47,4 +47,4 @@ result = currency_conversion(transaction={
     "to": "Счет 35383033474447895560"
 })
 
-print(result)
+# print(result)

@@ -24,22 +24,21 @@ def get_mask_card_number(mask_card_number: str) -> str:
 def get_mask_account(mask_account: str) -> str:
     """Функция принимает на вход номер счета и возвращает его маску, в замаскированной форме"""
     if not mask_account:
-        logger.warning("Переданный счёт пуст.")
-        return "Номер счёта отсутствует"
+        logger.warning("Переданный счет пуст.")
+        return "Номер счета отсутствует"
     elif len(mask_account) != 20:
-        logger.error(f"Счёт '{mask_account}' имеет неверный формат. Длина должна быть ровно 20 символов.")
-        return "Неверный формат номера счёта"
+        logger.error(f"Счет '{mask_account}' имеет неверный формат. Длина должна быть ровно 20 символов.")
+        return "Неверный формат номера счета"
     else:
         masked_value = f"**{mask_account[-4:]}"
-        logger.debug(f"Успешно замаскирован счёт '{mask_account}'. Результат: {masked_value}")
+        logger.debug(f"Успешно замаскирован счет '{mask_account}'. Результат: {masked_value}")
         return masked_value
 
+ # mask_card_number = input("Введите номер карты:")
+ # mask_account = input("Введите номер счета:")
 
-mask_card_number = input("Введите номер карты:")
-mask_account = input("Введите номер счета:")
+# result = get_mask_card_number(mask_card_number)
+# result_for_account = get_mask_account(mask_account)
 
-result = get_mask_card_number(mask_card_number)
-result_for_account = get_mask_account(mask_account)
-
-print(result)
-print(result_for_account)
+# print(result)
+# print(result_for_account)
