@@ -32,9 +32,9 @@ def log(filename=None):
     return decorator_for_logging
 
 
-@log(filename="my_log.txt")
-def my_function(x: int, y: int) -> int:
-    return x + y
-
-
-my_function(1, 6)
+# @log(filename="my_log.txt")
+# def my_function(x: int, y: int) -> int:
+#     return x + y
+#
+#
+# my_function(1, 6)

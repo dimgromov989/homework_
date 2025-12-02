@@ -33,6 +33,5 @@ def data_for_transactions(file_path: str) -> list:
         logger.error(f"Произошла ошибка: {ex}.")
         return []
 
-
-result = data_for_transactions(file_path)
-print(result)
+# result = data_for_transactions(file_path)
+# print(result)

@@ -22,9 +22,9 @@ def sort_by_date(list_of_dict: list, sort: bool = True) -> list:
     return sorted_list_of_date
 
 
-# result_for_filter_date = filter_by_state(list_of_dict, state=input() or "EXECUTED")
-# result_for_sort_date = sort_by_date(list_of_dict)
-#
-#
+result_for_filter_date = filter_by_state(list_of_dict, state=input() or "EXECUTED")
+result_for_sort_date = sort_by_date(list_of_dict)
+
+
 # print(f"Фильтр по state: {result_for_filter_date}")
 # print(f"Фильтр по date:{result_for_sort_date}")
