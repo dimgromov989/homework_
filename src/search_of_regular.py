@@ -1,5 +1,8 @@
 # import json
+from collections import Counter
 import re
+
+
 # from pathlib import Path
 #
 # base_dir = Path(__file__).parent
@@ -13,16 +16,17 @@ import re
 
 def process_bank_search(data: list[dict], search: str) -> list[dict]:
     """Функция, которая принимает список словарей с транзакциями и строку поиска,
-     а возвращает список словарей, у которых в описании есть данная строка."""
-    list_for_result = []
+    а возвращает список словарей, у которых в описании есть данная строка."""
     if not search:
         return []
     escaped_search = re.escape(search)
     pattern_of_trans = re.compile(escaped_search, re.IGNORECASE)
+    list_for_result = []
     for transaction in data:
-        description = transaction.get('description')
+        description = transaction.get("description")
         if description and re.search(pattern_of_trans, description):
             list_for_result.append(transaction)
+
     return list_for_result
 
 
@@ -31,19 +35,26 @@ def process_bank_search(data: list[dict], search: str) -> list[dict]:
 # print(result)
 
 
-categories = ['Перевод организации', 'Открытие вклада', 'Перевод со счета на счет', 'Перевод с карты на карту', 'Перевод с карты на счет']
+categories = [
+    "Перевод организации",
+    "Открытие вклада",
+    "Перевод со счета на счет",
+    "Перевод с карты на карту",
+    "Перевод с карты на счет",
+]
 
-def process_bank_operations(data:list[dict], categories:list)->dict:
-    """Функция, которая принимает список словарей с данными о банковских операций и список категорий операций, а возвращает словарь,
-     в котором ключи — это названия категорий, а значения — это количество операций в каждой категории"""
+
+def process_bank_operations(data: list[dict], categories: list) -> dict:
+    """Функция, которая возвращает словарь,в котором ключи — это названия
+    категорий, а значения — это количество операций в каждой категории"""
     if not categories:
         return {}
-    dict_result = {category: 0 for category in categories}
-    for transaction in data:
-        if transaction.get('description') in categories:
-            dict_result[transaction.get('description')] += 1
-    return dict_result
+    descriptions_in_categories = [
+        transaction["description"] for transaction in data if transaction.get("description") in categories
+    ]
+    counts = Counter(descriptions_in_categories)
+    return {category: counts.get(category, 0) for category in categories}
+
 
 # result = process_bank_operations(data, categories)
 # print(result)
-

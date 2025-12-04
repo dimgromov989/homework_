@@ -14,7 +14,7 @@ logger.addHandler(file_handler)
 file_path = r"C:\Users\user\PycharmProjects\homework\data\operations.json"
 
 
-def data_for_transactions(file_path: str) -> list:
+def data_for_transactions(file_path: str) -> list[dict]:
     """Функция, которая принимает на вход путь до JSON-файла
     и возвращает список словарей с данными о финансовых транзакциях."""
     try:
@@ -32,6 +32,7 @@ def data_for_transactions(file_path: str) -> list:
     except (FileNotFoundError, json.JSONDecodeError) as ex:
         logger.error(f"Произошла ошибка: {ex}.")
         return []
+
 
 # result = data_for_transactions(file_path)
 # print(result)
