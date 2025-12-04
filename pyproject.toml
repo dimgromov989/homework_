@@ -17,6 +17,10 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.11"
+requests = "^2.32.5"
+python-dotenv = "^1.2.1"
+pandas = "^2.3.3"
+openpyxl = "^3.1.5"
 
 [tool.poetry.group.lint.dependencies]
 flake8 = "^7.0"
@@ -25,6 +29,11 @@ isort = "^5.13"
 mypy = "^1.11"
 
 # Конфигурация Black
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.2"
+pytest-cov = "^7.0.0"
+
 [tool.black]
 line-length = 119
 exclude = '''
