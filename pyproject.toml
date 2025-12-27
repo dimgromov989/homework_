@@ -25,6 +25,11 @@ isort = "^5.13"
 mypy = "^1.11"
 
 # Конфигурация Black
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.2"
+pytest-cov = "^7.0.0"
+
 [tool.black]
 line-length = 119
 exclude = '''
