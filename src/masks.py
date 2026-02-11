@@ -1,11 +1,18 @@
-
 def get_mask_card_number(mask_card_number: str) -> str:
     """Функция, принимающая на вход номер карты и возвращает ее маску в замаскированном формате"""
+    if not mask_card_number:
+        return "Номер карты отсутствует"
+    elif len(mask_card_number) < 16 or len(mask_card_number) > 16:
+        return "Неверный формат номера карты"
     return f"{mask_card_number[0:4]} {mask_card_number[4:6]}** **** {mask_card_number[12:]}"
 
 
 def get_mask_account(mask_account: str) -> str:
     """Функция принимает на вход номер счета и возвращает его маску, в замаскированной форме"""
+    if not mask_account:
+        return "Номер счета отсутствует"
+    elif len(mask_account) < 20 or len(mask_account) > 20:
+        return "Неверный формат номера счета"
     return f"**{mask_account[-4:]}"
 
 
